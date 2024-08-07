@@ -1,3 +1,4 @@
+import IconButton from '@/components/IconButton'
 import { ReactSVG } from 'react-svg'
 import EmailInputButton from '@/img/email-input-button.svg'
 import NumberInputButton from '@/img/number-input-button.svg'
@@ -138,110 +139,14 @@ function App() {
             <CardTitle>Componentes</CardTitle>
             <CardDescription>
               <div className="flex gap-4">
-                <div className="flex flex-col w-20 h-20">
-                  <div className="h-20
-                                  rounded-md
-                                  bg-slate-100
-                                  flex
-                                  items-center
-                                  justify-center
-                                  active:cursor-grabbing
-                                  cursor-grab">
-                    <ReactSVG src={TextInputButton} />
-                  </div>
-                  <div className="h-4 flex justify-center text-center">Text Input</div>
-                </div>
-                <div className="flex flex-col w-20 h-20">
-                  <div className="h-20
-                                  rounded-md
-                                  bg-slate-100
-                                  flex
-                                  items-center
-                                  justify-center
-                                  active:cursor-grabbing
-                                  cursor-grab">
-                    <ReactSVG src={EmailInputButton} />
-                  </div>
-                  <div className="h-4 flex justify-center text-center">Email Input</div>
-                </div>
-                <div className="flex flex-col w-20 h-20">
-                  <div className="h-20
-                                  rounded-md
-                                  bg-slate-100
-                                  flex
-                                  items-center
-                                  justify-center
-                                  active:cursor-grabbing
-                                  cursor-grab">
-                    <ReactSVG src={PasswordInputButton} />
-                  </div>
-                  <div className="h-4 flex justify-center text-center">Password Input</div>
-                </div>
-                <div className="flex flex-col w-20 h-20">
-                  <div className="h-20
-                                  rounded-md
-                                  bg-slate-100
-                                  flex
-                                  items-center
-                                  justify-center
-                                  active:cursor-grabbing
-                                  cursor-grab">
-                    <ReactSVG src={NumberInputButton} />
-                  </div>
-                  <div className="h-4 flex justify-center text-center">Number Input</div>
-                </div>
-                <div className="flex flex-col w-20 h-20">
-                  <div className="h-20
-                                  rounded-md
-                                  bg-slate-100
-                                  flex
-                                  items-center
-                                  justify-center
-                                  active:cursor-grabbing
-                                  cursor-grab">
-                    <ReactSVG src={PhoneInputButton} />
-                  </div>
-                  <div className="h-4 flex justify-center text-center">Phone Input</div>
-                </div>
-                <div className="flex flex-col w-20 h-20">
-                  <div className="h-20
-                                  rounded-md
-                                  bg-slate-100
-                                  flex
-                                  items-center
-                                  justify-center
-                                  active:cursor-grabbing
-                                  cursor-grab">
-                    <ReactSVG src={RangerInputButton} />
-                  </div>
-                  <div className="h-4 flex justify-center text-center">Ranger Input</div>
-                </div>
-                <div className="flex flex-col w-20 h-20">
-                  <div className="h-20
-                                  rounded-md
-                                  bg-slate-100
-                                  flex
-                                  items-center
-                                  justify-center
-                                  active:cursor-grabbing
-                                  cursor-grab">
-                    <ReactSVG src={SearchInputButton} />
-                  </div>
-                  <div className="h-4 flex justify-center text-center">Search Input</div>
-                </div>
-                <div className="flex flex-col w-20 h-20">
-                  <div className="h-20
-                                  rounded-md
-                                  bg-slate-100
-                                  flex
-                                  items-center
-                                  justify-center
-                                  active:cursor-grabbing
-                                  cursor-grab">
-                    <ReactSVG src={UrlInputButton} />
-                  </div>
-                  <div className="h-4 flex justify-center text-center">Url Input</div>
-                </div>
+                <IconButton src={'text-input-button'} label={'Text Input'} />
+                <IconButton src={'email-input-button'} label={'Email Input'} />
+                <IconButton src={'password-input-button'} label={'Password Input'} />
+                <IconButton src={'number-input-button'} label={'Number Input'} />
+                <IconButton src={'phone-input-button'} label={'Phone Input'} />
+                <IconButton src={'ranger-input-button'} label={'Ranger Input'} />
+                <IconButton src={'search-input-button'} label={'Search Input'} />
+                <IconButton src={'url-input-button'} label={'Url Input'} />
               </div>
             </CardDescription>
           </CardHeader>
