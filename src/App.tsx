@@ -1,13 +1,4 @@
 import IconButton from '@/components/IconButton'
-import { ReactSVG } from 'react-svg'
-import EmailInputButton from '@/img/email-input-button.svg'
-import NumberInputButton from '@/img/number-input-button.svg'
-import PasswordInputButton from '@/img/password-input-button.svg'
-import PhoneInputButton from '@/img/phone-input-button.svg'
-import RangerInputButton from '@/img/ranger-input-button.svg'
-import SearchInputButton from '@/img/search-input-button.svg'
-import TextInputButton from '@/img/text-input-button.svg'
-import UrlInputButton from '@/img/url-input-button.svg'
 import { Newspaper, Menu, Search, CircleUser } from "lucide-react"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { Button } from "@/components/ui/button"
@@ -27,8 +18,31 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
+import { useEffect, useState } from 'react'
+
+interface Transaction {
+  id: string,
+  name: string,
+  icon_name: string,
+  created_at: string,
+  updated_at: string,
+  attribute_specifications: Array<any>
+}
 
 function App() {
+  const [transactions, setTransactions] = useState<Transaction[]>([])
+
+  async function loadTransactionFields() {
+    const response = await fetch('http://localhost:3000/activity_fields')
+    const data = await response.json()
+
+    setTransactions(data.activity_fields)
+  }
+
+  useEffect(() => {
+    loadTransactionFields()
+  }, [])
+
 
   return (
     <div className="flex flex-col min-h-screen w-full">
@@ -139,14 +153,11 @@ function App() {
             <CardTitle>Componentes</CardTitle>
             <CardDescription>
               <div className="flex gap-4">
-                <IconButton src={'text-input-button'} label={'Text Input'} />
-                <IconButton src={'email-input-button'} label={'Email Input'} />
-                <IconButton src={'password-input-button'} label={'Password Input'} />
-                <IconButton src={'number-input-button'} label={'Number Input'} />
-                <IconButton src={'phone-input-button'} label={'Phone Input'} />
-                <IconButton src={'ranger-input-button'} label={'Ranger Input'} />
-                <IconButton src={'search-input-button'} label={'Search Input'} />
-                <IconButton src={'url-input-button'} label={'Url Input'} />
+                {
+                  transactions.map(transaction => {
+                    return (<IconButton src={transaction.icon_name} label={transaction.name} />)
+                  })
+                }
               </div>
             </CardDescription>
           </CardHeader>
