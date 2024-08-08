@@ -9,21 +9,21 @@ import UrlInputButton from '@/img/url-input-button.svg'
 import { ReactSVG } from 'react-svg';
 
 interface IconButtonProps {
-  src: IconName;
+  src: string;
   label: string;
 }
 
-type IconName =
-  | 'email-input-button'
-  | 'number-input-button'
-  | 'password-input-button'
-  | 'phone-input-button'
-  | 'ranger-input-button'
-  | 'search-input-button'
-  | 'text-input-button'
-  | 'url-input-button';
+type InputButton =
+  | typeof EmailInputButton
+  | typeof NumberInputButton
+  | typeof PasswordInputButton
+  | typeof PhoneInputButton
+  | typeof RangerInputButton
+  | typeof SearchInputButton
+  | typeof TextInputButton
+  | typeof UrlInputButton;
 
-const importIcon = (name: IconName): string => {
+const importIcon = (name: string): InputButton => {
   switch (name) {
     case 'email-input-button':
       return EmailInputButton;
@@ -41,6 +41,8 @@ const importIcon = (name: IconName): string => {
       return TextInputButton;
     case 'url-input-button':
       return UrlInputButton;
+    default:
+      throw new Error(`Unsupported type: ${name}`);
   }
 }
 
